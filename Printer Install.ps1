@@ -1,14 +1,18 @@
-﻿# Install Script for both Sharp and HP V4 Drivers. 
+# Install Script for both Sharp and HP V4 Drivers. 
 # MUST be run as admin!
 
-Copy-Item -Path "SH_D25_PCL6_PS_2308a_EnglishUS_64bit.zip" -Destination "C:\temp\SH_D25_PCL6_PS_2308a_EnglishUS_64bit.zip" -ErrorAction SilentlyContinue
-Expand-Archive -Path 'C:\temp\SH_D25_PCL6_PS_2308a_EnglishUS_64bit.zip' -DestinationPath 'C:\Drivers\'
+Write-Host "Creating Sharp Driver Path..."
+Copy-Item -Path "v4_02_PCL6_1712a.zip" -Destination "C:\temp\v4_02_PCL6_1712a.zip" -ErrorAction SilentlyContinue
+Expand-Archive -Path 'C:\temp\v4_02_PCL6_1712a.zip' -DestinationPath 'C:\Drivers\'
+Start-Sleep 5
 
-Copy-Item -Path "SUPD-V4-X64-3.08.1.2731.zip" -Destination "C:\temp\SUPD-V4-X64-3.08.1.2731.zip" -ErrorAction SilentlyContinue
-Expand-Archive -Path "C:\temp\ps-x64-7.1.0.255570.zip" -DestinationPath "C:\Drivers\"
+Write-Host "Creating HP Driver Path..."
+Copy-Item -Path "ps-x64-7.1.0.25570.zip" -Destination "C:\temp\ps-x64-7.1.0.25570.zip" -ErrorAction SilentlyContinue
+Expand-Archive -Path "C:\temp\ps-x64-7.1.0.25570.zip" -DestinationPath "C:\Drivers\"
+Start-Sleep 5
 
 $sharpDriver = "SHARP BP-50C65 PCL6"
-$sharpInfPath = "C:\Drivers\SH_D25_PCL6_PS_2308a_EnglishUS_64bit\EnglishA\PCL6\64bit\su3emenu.inf"
+$sharpInfPath = "C:\Drivers\PCL6\64bit\su06menu.inf"
 $hpDriver = "HP Universal Print Driver"
 $hpInfPath = "C:\Drivers\ps-x64-7.1.0.25570\hpbuio200l.inf"
 
